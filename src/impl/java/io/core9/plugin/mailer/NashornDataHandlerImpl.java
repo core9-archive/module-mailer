@@ -1,4 +1,4 @@
-package io.core9.plugin.nashorn;
+package io.core9.plugin.mailer;
 
 import io.core9.plugin.admin.plugins.AdminConfigRepository;
 import io.core9.plugin.database.mongodb.MongoDatabase;

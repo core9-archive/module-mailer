@@ -1,4 +1,4 @@
-package io.core9.plugin.nashorn;
+package io.core9.plugin.mailer;
 
 
 import java.io.IOException;
