@@ -16,7 +16,7 @@ import net.xeoh.plugins.base.annotations.injections.InjectPlugin;
 public class MailerWidgetImpl implements MailerWidget {
 
 	@InjectPlugin
-	private MailerDataHandler<MailerDataHandlerConfig> nashornDataHandler;
+	private MailerDataHandler<MailerDataHandlerConfig> mailerDataHandler;
 	
 	private DataHandler<MailerDataHandlerConfig> handler;
 	
@@ -28,22 +28,22 @@ public class MailerWidgetImpl implements MailerWidget {
 	@Override
     public void execute() {
 		MailerDataHandlerConfig options = new MailerDataHandlerConfig();
-		DataHandlerGlobalString NashornId = new DataHandlerGlobalString();
-		NashornId.setGlobal(true);
-		options.setNashornID(NashornId);
-		handler = nashornDataHandler.createDataHandler(options);
+		DataHandlerGlobalString mailerId = new DataHandlerGlobalString();
+		mailerId.setGlobal(true);
+		options.setNashornID(mailerId);
+		handler = mailerDataHandler.createDataHandler(options);
     }
 
 
 	@Override
     public String getName() {
-	    return "nashorn_js";
+	    return "mailer";
     }
 
 	@Override
     public String getTemplate() {
 		try {
-			return CharStreams.toString(new InputStreamReader(this.getClass().getResourceAsStream("/nashorn/template.soy")));
+			return CharStreams.toString(new InputStreamReader(this.getClass().getResourceAsStream("/mailer/template.soy")));
 		} catch (IOException e) {
 			e.printStackTrace();
 			return null;
@@ -52,6 +52,6 @@ public class MailerWidgetImpl implements MailerWidget {
 
 	@Override
     public String getTemplateName() {
-		return "io.core9.nashorn.script";
+		return "io.core9.mailer.template";
     }
 }
