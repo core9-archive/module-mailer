@@ -7,33 +7,33 @@ import io.core9.plugin.widgets.datahandler.DataHandlerGlobalString;
 
 public class MailerDataHandlerConfig extends DataHandlerDefaultConfig {
 	
-	@Core9GlobalConfiguration(type = "nashorn")
-	private DataHandlerGlobalString nashornID;
+	@Core9GlobalConfiguration(type = "mailer")
+	private DataHandlerGlobalString mailerID;
 
 	/**
 	 * @return the menuName
 	 */
-	public DataHandlerGlobalString getNashornID() {
-		return nashornID;
+	public DataHandlerGlobalString getMailerId() {
+		return mailerID;
 	}
 	
 	/**
-	 * Return the nashornID from a global
+	 * Return the mailerID from a global
 	 * @param request
 	 * @return
 	 */
-	public String getNashornID(Request request) {
-		if(nashornID.isGlobal()) {
-			return request.getContext(this.getComponentId() + ".nashornID", nashornID.getValue());
+	public String getMailerId(Request request) {
+		if(mailerID.isGlobal()) {
+			return request.getContext(this.getComponentId() + ".mailerID", mailerID.getValue());
 		}
-		return nashornID.getValue();
+		return mailerID.getValue();
 	}
 
 	/**
 	 * @param menuName the menuName to set
 	 */
-	public void setNashornID(DataHandlerGlobalString nashornID) {
-		this.nashornID = nashornID;
+	public void setMailerId(DataHandlerGlobalString mailerId) {
+		this.mailerID = mailerId;
 	}
 
 }

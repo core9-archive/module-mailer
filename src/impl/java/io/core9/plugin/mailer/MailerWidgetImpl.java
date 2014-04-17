@@ -30,7 +30,7 @@ public class MailerWidgetImpl implements MailerWidget {
 		MailerDataHandlerConfig options = new MailerDataHandlerConfig();
 		DataHandlerGlobalString mailerId = new DataHandlerGlobalString();
 		mailerId.setGlobal(true);
-		options.setNashornID(mailerId);
+		options.setMailerId(mailerId);
 		handler = mailerDataHandler.createDataHandler(options);
     }
 

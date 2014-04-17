@@ -49,7 +49,7 @@ public class MailerDataHandlerImpl implements
 
 	@Override
 	public String getName() {
-		return "Nashorn";
+		return "Mailer";
 	}
 
 	private NashornScriptEngineFactory factory = new NashornScriptEngineFactory();
@@ -78,9 +78,9 @@ public class MailerDataHandlerImpl implements
 			@Override
 			public Map<String, Object> handle(Request req) {
 
-				Map<String, Object> nashorn = getScriptPath(options, req);
-				if (nashorn == null) {
-					nashorn = new HashMap<String, Object>();
+				Map<String, Object> mailer = getScriptPath(options, req);
+				if (mailer == null) {
+					mailer = new HashMap<String, Object>();
 					Map<String, Object> file = getJsFile(options, req);
 
 					getEngine(file);
@@ -118,10 +118,10 @@ public class MailerDataHandlerImpl implements
 						e.printStackTrace();
 					}
 
-					nashorn.put("nashorn", postDatabase);
+					mailer.put("mailer", postDatabase);
 
 				}
-				result.put("nashorn", nashorn);
+				result.put("mailer", mailer);
 				return result;
 			}
 
@@ -160,7 +160,7 @@ public class MailerDataHandlerImpl implements
 			private JSONObject getServerObject() {
 				JSONObject server = new JSONObject();
 				JSONObject request = new JSONObject();
-				request.put("path", "/nashorn");
+				request.put("path", "/mailer");
 				server.put("request", request);
 				return server;
 			}
@@ -183,7 +183,7 @@ public class MailerDataHandlerImpl implements
 			private Map<String, Object> getJsFile(
 					final DataHandlerFactoryConfig options, Request req) {
 				String id = ((MailerDataHandlerConfig) options)
-						.getNashornID(req);
+						.getMailerId(req);
 
 				Map<String, Object> file = repository.getFileContentsByName(
 						req.getVirtualHost(), id);
@@ -192,10 +192,10 @@ public class MailerDataHandlerImpl implements
 
 			private Map<String, Object> getScriptPath(
 					final DataHandlerFactoryConfig options, Request req) {
-				Map<String, Object> nashorn = configRepository.readConfig(
+				Map<String, Object> mailer = configRepository.readConfig(
 						req.getVirtualHost(),
-						((MailerDataHandlerConfig) options).getNashornID(req));
-				return nashorn;
+						((MailerDataHandlerConfig) options).getMailerId(req));
+				return mailer;
 			}
 
 			@Override
