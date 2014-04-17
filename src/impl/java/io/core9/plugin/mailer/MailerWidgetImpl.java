@@ -13,12 +13,12 @@ import net.xeoh.plugins.base.annotations.injections.InjectPlugin;
 
 
 @PluginImplementation
-public class NashornWidgetImpl implements NashornWidget {
+public class MailerWidgetImpl implements MailerWidget {
 
 	@InjectPlugin
-	private NashornDataHandler<NashornDataHandlerConfig> nashornDataHandler;
+	private MailerDataHandler<MailerDataHandlerConfig> nashornDataHandler;
 	
-	private DataHandler<NashornDataHandlerConfig> handler;
+	private DataHandler<MailerDataHandlerConfig> handler;
 	
 	@Override
 	public DataHandler<?> getDataHandler() {
@@ -27,7 +27,7 @@ public class NashornWidgetImpl implements NashornWidget {
 
 	@Override
     public void execute() {
-		NashornDataHandlerConfig options = new NashornDataHandlerConfig();
+		MailerDataHandlerConfig options = new MailerDataHandlerConfig();
 		DataHandlerGlobalString NashornId = new DataHandlerGlobalString();
 		NashornId.setGlobal(true);
 		options.setNashornID(NashornId);

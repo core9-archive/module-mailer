@@ -32,8 +32,8 @@ import net.xeoh.plugins.base.annotations.PluginImplementation;
 import net.xeoh.plugins.base.annotations.injections.InjectPlugin;
 
 @PluginImplementation
-public class NashornDataHandlerImpl implements
-		NashornDataHandler<NashornDataHandlerConfig> {
+public class MailerDataHandlerImpl implements
+		MailerDataHandler<MailerDataHandlerConfig> {
 
 	@InjectPlugin
 	private AdminConfigRepository configRepository;
@@ -59,14 +59,14 @@ public class NashornDataHandlerImpl implements
 
 	@Override
 	public Class<? extends DataHandlerFactoryConfig> getConfigClass() {
-		return NashornDataHandlerConfig.class;
+		return MailerDataHandlerConfig.class;
 	}
 
 	@SuppressWarnings("unused")
 	@Override
-	public DataHandler<NashornDataHandlerConfig> createDataHandler(
+	public DataHandler<MailerDataHandlerConfig> createDataHandler(
 			final DataHandlerFactoryConfig options) {
-		return new DataHandler<NashornDataHandlerConfig>() {
+		return new DataHandler<MailerDataHandlerConfig>() {
 
 			private String js;
 			private Object response;
@@ -182,7 +182,7 @@ public class NashornDataHandlerImpl implements
 
 			private Map<String, Object> getJsFile(
 					final DataHandlerFactoryConfig options, Request req) {
-				String id = ((NashornDataHandlerConfig) options)
+				String id = ((MailerDataHandlerConfig) options)
 						.getNashornID(req);
 
 				Map<String, Object> file = repository.getFileContentsByName(
@@ -194,13 +194,13 @@ public class NashornDataHandlerImpl implements
 					final DataHandlerFactoryConfig options, Request req) {
 				Map<String, Object> nashorn = configRepository.readConfig(
 						req.getVirtualHost(),
-						((NashornDataHandlerConfig) options).getNashornID(req));
+						((MailerDataHandlerConfig) options).getNashornID(req));
 				return nashorn;
 			}
 
 			@Override
-			public NashornDataHandlerConfig getOptions() {
-				return (NashornDataHandlerConfig) options;
+			public MailerDataHandlerConfig getOptions() {
+				return (MailerDataHandlerConfig) options;
 			}
 		};
 	}

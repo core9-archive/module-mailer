@@ -5,7 +5,7 @@ import io.core9.plugin.widgets.Core9GlobalConfiguration;
 import io.core9.plugin.widgets.datahandler.DataHandlerDefaultConfig;
 import io.core9.plugin.widgets.datahandler.DataHandlerGlobalString;
 
-public class NashornDataHandlerConfig extends DataHandlerDefaultConfig {
+public class MailerDataHandlerConfig extends DataHandlerDefaultConfig {
 	
 	@Core9GlobalConfiguration(type = "nashorn")
 	private DataHandlerGlobalString nashornID;
