@@ -1,20 +1,19 @@
 package io.core9.plugin.mailer;
 
 import io.core9.plugin.server.request.Request;
-import io.core9.plugin.widgets.Core9GlobalConfiguration;
 import io.core9.plugin.widgets.datahandler.DataHandlerDefaultConfig;
+import io.core9.plugin.widgets.datahandler.DataHandlerFactoryConfig;
 import io.core9.plugin.widgets.datahandler.DataHandlerGlobalString;
 
-public class MailerDataHandlerConfig extends DataHandlerDefaultConfig {
+public class MailerDataHandlerConfig extends DataHandlerDefaultConfig implements DataHandlerFactoryConfig {
 	
-	@Core9GlobalConfiguration(type = "mailer")
-	private DataHandlerGlobalString mailerID;
-
+	private DataHandlerGlobalString mailerId;
+	
 	/**
 	 * @return the menuName
 	 */
 	public DataHandlerGlobalString getMailerId() {
-		return mailerID;
+		return mailerId;
 	}
 	
 	/**
@@ -23,17 +22,17 @@ public class MailerDataHandlerConfig extends DataHandlerDefaultConfig {
 	 * @return
 	 */
 	public String getMailerId(Request request) {
-		if(mailerID.isGlobal()) {
-			return request.getContext(this.getComponentId() + ".mailerID", mailerID.getValue());
+		if(mailerId.isGlobal()) {
+			return request.getContext(this.getComponentName() + ".mailerId", mailerId.getValue());
 		}
-		return mailerID.getValue();
+		return mailerId.getValue();
 	}
 
 	/**
 	 * @param menuName the menuName to set
 	 */
 	public void setMailerId(DataHandlerGlobalString mailerId) {
-		this.mailerID = mailerId;
+		this.mailerId = mailerId;
 	}
 
 }

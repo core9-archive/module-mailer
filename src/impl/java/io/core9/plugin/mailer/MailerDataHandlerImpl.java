@@ -2,7 +2,6 @@ package io.core9.plugin.mailer;
 
 import io.core9.plugin.admin.plugins.AdminConfigRepository;
 import io.core9.plugin.server.request.Request;
-import io.core9.plugin.server.vertx.VertxServer;
 import io.core9.plugin.widgets.datahandler.DataHandler;
 import io.core9.plugin.widgets.datahandler.DataHandlerFactoryConfig;
 
@@ -12,14 +11,12 @@ import net.xeoh.plugins.base.annotations.PluginImplementation;
 import net.xeoh.plugins.base.annotations.injections.InjectPlugin;
 
 @PluginImplementation
-public class MailerDataHandlerImpl implements
-		MailerDataHandler<MailerDataHandlerConfig> {
+public class MailerDataHandlerImpl implements MailerDataHandler {
 
 	@InjectPlugin
 	private AdminConfigRepository configRepository;
 
-	@InjectPlugin
-	private VertxServer server;
+
 
 	@Override
 	public String getName() {
@@ -44,7 +41,6 @@ public class MailerDataHandlerImpl implements
 				Map<String, Object> mailer = configRepository.readConfig(
 						req.getVirtualHost(),
 						((MailerDataHandlerConfig) options).getMailerId(req));
-
 				result.put("mailer", mailer);
 				return result;
 			}
