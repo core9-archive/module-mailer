@@ -22,9 +22,13 @@ task publishBintray (type: org._10ne.gradle.rest.RestTask, dependsOn: bintrayUpl
 dependencies {
 	
 	compile 'javax.mail:mail:+'
+	compile 'io.core9:module-nashorn:+'
 	
 	apiCompile 'io.core9:core-api:+'
 	apiCompile 'io.core9:module-widgets-api:+'
+
+	implCompile 'io.core9:module-nashorn:+'
+
 	implCompile 'io.core9:module-database-mongodb-api:+'
 	implCompile 'net.minidev:json-smart:2.0-RC3'
 	implCompile 'com.google.guava:guava:15.0'
@@ -37,5 +41,6 @@ dependencies {
 	
 	testCompile 'com.github.fakemongo:fongo:1.4.0'
 	testCompile 'ch.qos.logback:logback-classic:1.1.1'
+	testCompile 'io.core9:module-nashorn:+'
 	
 }

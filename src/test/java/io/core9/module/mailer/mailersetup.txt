@@ -1,0 +1,16 @@
+{
+    "mail": {
+    	"user": "schalmjeugd@gmail.com",
+    	"password": "Pannekoek",
+        "SSL": "true",
+        "smtpHost": "smtp.gmail.com",
+        "port": "587",
+        "auth": "true",
+        "message": {
+            "to": "robert.cooke@trimm.nl",
+            "text": "Dit is een test e-mail",
+            "subject": "IK ZEI TOCH DAT T WERKT",
+            "from": "Willekeurig@gmail.com"
+        }
+    }
+}
