@@ -1,7 +1,6 @@
 package io.core9.plugin.mailer;
 
 import io.core9.plugin.javascript.JavascriptModule;
-import io.core9.plugin.javascript.JavascriptModuleImpl;
 
 import java.util.HashMap;
 import java.util.Map;

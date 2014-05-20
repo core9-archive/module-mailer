@@ -28,6 +28,7 @@ public class TestMail {
 			
 			module.setJson(json);
 			
+			@SuppressWarnings("unused")
 			JSONObject jsonResult = module.getJson();
 			
 			

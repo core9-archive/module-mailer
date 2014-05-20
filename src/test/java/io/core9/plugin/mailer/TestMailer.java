@@ -1,10 +1,6 @@
 package io.core9.plugin.mailer;
 
-import io.core9.module.mailer.MailMessage;
-import io.core9.module.mailer.SendTLSMail;
-import io.core9.module.mailer.TLSMailProperties;
 import io.core9.plugin.javascript.JavascriptModule;
-import io.core9.plugin.nashorn.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -16,7 +12,6 @@ import javax.mail.MessagingException;
 
 import net.minidev.json.JSONObject;
 import net.minidev.json.JSONValue;
-import net.minidev.json.parser.*;
 
 import org.junit.Test;
 
