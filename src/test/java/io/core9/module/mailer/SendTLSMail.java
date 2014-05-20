@@ -36,6 +36,8 @@ public class SendTLSMail {
 				return new PasswordAuthentication(username, password);
 			}
 		});
+		
+		JSONObject result = new JSONObject();
 
 		try {
 			Message message = new MimeMessage(session);
@@ -47,11 +49,13 @@ public class SendTLSMail {
 
 			Transport.send(message);
 
-			return (JSONObject) new JSONObject().put("Status", "Done");
+			result.put("result", "success");
 
 		} catch (MessagingException e) {
-			throw new RuntimeException(e);
-		}
+			
 
+			result.put("result", "fail");
+		}
+		return result;
 	}
 }

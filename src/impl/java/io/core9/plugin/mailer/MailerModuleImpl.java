@@ -14,14 +14,11 @@ public class MailerModuleImpl implements JavascriptModule {
 
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
+		return "mailer";
 	}
 
 	@Override
 	public void setName(String name) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
