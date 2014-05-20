@@ -69,11 +69,11 @@ public class MailerDataHandlerImpl implements MailerDataHandler {
 				String fileStr = ((MailerDataHandlerConfig) options)
 						.getMailerId(req);
 
-				String[] files = fileStr.split(",");
+				String[] files = getFiles(fileStr);
 
 				for (String file : files) {
 					Map<String, Object> tmpFile = repository
-							.getFileContentsByName(req.getVirtualHost(), file.substring(7));
+							.getFileContentsByName(req.getVirtualHost(), file);
 					if (tmpFile != null) {
 						res.putAll(tmpFile);
 					}
@@ -82,6 +82,9 @@ public class MailerDataHandlerImpl implements MailerDataHandler {
 				return res;
 			}
 
+			public String[] getFiles(String fileStr){
+				return fileStr.split(",");
+			}
 		};
 	}
 
